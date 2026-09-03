@@ -30,7 +30,7 @@ function Wishlist() {
             <Heart className="mx-auto size-8 text-muted-foreground" />
             <p className="mt-4 font-display text-xl">Nothing saved yet</p>
             <p className="mt-2 text-sm text-muted-foreground">Tap the heart on any wig to save it for later.</p>
-            <Button asChild className="mt-6"><Link to="/shop">Shop wigs</Link></Button>
+            <Button asChild className="mt-6"><Link to="/shop" search={{}}>Shop wigs</Link></Button>
           </div>
         ) : (
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">

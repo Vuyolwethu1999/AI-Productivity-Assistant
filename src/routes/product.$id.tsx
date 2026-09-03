@@ -38,7 +38,7 @@ function ProductPage() {
         <div className="mx-auto max-w-3xl px-4 py-24 text-center">
           <h1 className="font-display text-3xl">Wig not found</h1>
           <p className="mt-2 text-sm text-muted-foreground">This product may have been removed.</p>
-          <Button asChild className="mt-6"><Link to="/shop">Back to shop</Link></Button>
+          <Button asChild className="mt-6"><Link to="/shop" search={{}}>Back to shop</Link></Button>
         </div>
       </StoreLayout>
     );
@@ -64,7 +64,7 @@ function ProductPage() {
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
         <nav className="text-xs text-muted-foreground">
           <Link to="/" className="hover:text-foreground">Home</Link> /{" "}
-          <Link to="/shop" className="hover:text-foreground">Shop</Link> / <span>{product.name}</span>
+          <Link to="/shop" search={{}} className="hover:text-foreground">Shop</Link> / <span>{product.name}</span>
         </nav>
 
         <div className="mt-6 grid gap-10 lg:grid-cols-2">
