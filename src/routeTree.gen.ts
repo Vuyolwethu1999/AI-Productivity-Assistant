@@ -26,6 +26,8 @@ import { Route as AdminProductsRouteImport } from './routes/admin.products'
 import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
 import { Route as OrderIdRouteImport } from './routes/order.$id'
 import { Route as ProductIdRouteImport } from './routes/product.$id'
+import { Route as AdminAiEmailRouteImport } from './routes/admin.ai.email'
+import { Route as AdminAiMeetingsRouteImport } from './routes/admin.ai.meetings'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -112,6 +114,16 @@ const ProductIdRoute = ProductIdRouteImport.update({
   path: '/product/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminAiEmailRoute = AdminAiEmailRouteImport.update({
+  id: '/admin/ai/email',
+  path: '/admin/ai/email',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAiMeetingsRoute = AdminAiMeetingsRouteImport.update({
+  id: '/admin/ai/meetings',
+  path: '/admin/ai/meetings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -131,6 +143,8 @@ export interface FileRoutesByFullPath {
   '/order/$id': typeof OrderIdRoute
   '/product/$id': typeof ProductIdRoute
   '/admin/': typeof AdminIndexRoute
+  '/admin/ai/email': typeof AdminAiEmailRoute
+  '/admin/ai/meetings': typeof AdminAiMeetingsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -150,6 +164,8 @@ export interface FileRoutesByTo {
   '/order/$id': typeof OrderIdRoute
   '/product/$id': typeof ProductIdRoute
   '/admin': typeof AdminIndexRoute
+  '/admin/ai/email': typeof AdminAiEmailRoute
+  '/admin/ai/meetings': typeof AdminAiMeetingsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -170,6 +186,8 @@ export interface FileRoutesById {
   '/order/$id': typeof OrderIdRoute
   '/product/$id': typeof ProductIdRoute
   '/admin/': typeof AdminIndexRoute
+  '/admin/ai/email': typeof AdminAiEmailRoute
+  '/admin/ai/meetings': typeof AdminAiMeetingsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -191,6 +209,8 @@ export interface FileRouteTypes {
     | '/order/$id'
     | '/product/$id'
     | '/admin/'
+    | '/admin/ai/email'
+    | '/admin/ai/meetings'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -210,6 +230,8 @@ export interface FileRouteTypes {
     | '/order/$id'
     | '/product/$id'
     | '/admin'
+    | '/admin/ai/email'
+    | '/admin/ai/meetings'
   id:
     | '__root__'
     | '/'
@@ -229,6 +251,8 @@ export interface FileRouteTypes {
     | '/order/$id'
     | '/product/$id'
     | '/admin/'
+    | '/admin/ai/email'
+    | '/admin/ai/meetings'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -249,6 +273,8 @@ export interface RootRouteChildren {
   OrderIdRoute: typeof OrderIdRoute
   ProductIdRoute: typeof ProductIdRoute
   AdminIndexRoute: typeof AdminIndexRoute
+  AdminAiEmailRoute: typeof AdminAiEmailRoute
+  AdminAiMeetingsRoute: typeof AdminAiMeetingsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -372,6 +398,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/ai/email': {
+      id: '/admin/ai/email'
+      path: '/admin/ai/email'
+      fullPath: '/admin/ai/email'
+      preLoaderRoute: typeof AdminAiEmailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/ai/meetings': {
+      id: '/admin/ai/meetings'
+      path: '/admin/ai/meetings'
+      fullPath: '/admin/ai/meetings'
+      preLoaderRoute: typeof AdminAiMeetingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -393,6 +433,8 @@ const rootRouteChildren: RootRouteChildren = {
   OrderIdRoute: OrderIdRoute,
   ProductIdRoute: ProductIdRoute,
   AdminIndexRoute: AdminIndexRoute,
+  AdminAiEmailRoute: AdminAiEmailRoute,
+  AdminAiMeetingsRoute: AdminAiMeetingsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
