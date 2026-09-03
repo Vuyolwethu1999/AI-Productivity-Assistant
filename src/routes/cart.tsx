@@ -32,7 +32,7 @@ function CartPage() {
             <ShoppingBag className="mx-auto size-8 text-muted-foreground" />
             <p className="mt-4 font-display text-xl">Your cart is empty</p>
             <p className="mt-2 text-sm text-muted-foreground">Browse the collection and add a unit to get started.</p>
-            <Button asChild className="mt-6"><Link to="/shop" search={{}}>Shop wigs</Link></Button>
+            <Button asChild className="mt-6"><Link to="/shop" search={{ category: undefined }}>Shop wigs</Link></Button>
           </div>
         ) : (
           <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_320px]">

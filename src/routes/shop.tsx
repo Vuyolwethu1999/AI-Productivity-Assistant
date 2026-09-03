@@ -89,7 +89,7 @@ function Shop() {
     setTexture("all");
     setColor("all");
     setLengthBand("all");
-    navigate({ search: {} });
+    navigate({ search: { category: undefined } });
   };
 
   const filters = (
@@ -98,7 +98,7 @@ function Shop() {
         <p className="text-sm font-semibold">Category</p>
         <div className="mt-3 flex flex-wrap gap-2">
           <button
-            onClick={() => navigate({ search: {} })}
+            onClick={() => navigate({ search: { category: undefined } })}
             className={cn(
               "rounded-full border border-border px-3 py-1.5 text-xs",
               !category && "border-champagne bg-accent font-medium",

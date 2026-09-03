@@ -102,7 +102,7 @@ function OrderPage() {
         </div>
 
         <div className="mt-8 flex flex-wrap gap-3">
-          <Button asChild><Link to="/shop" search={{}}>Continue shopping</Link></Button>
+          <Button asChild><Link to="/shop" search={{ category: undefined }}>Continue shopping</Link></Button>
           <Button asChild variant="outline"><Link to="/track">Track another order</Link></Button>
         </div>
       </div>

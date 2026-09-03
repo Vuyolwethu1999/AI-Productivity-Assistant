@@ -70,7 +70,7 @@ function Checkout() {
         <div className="mx-auto max-w-2xl px-4 py-24 text-center">
           <h1 className="font-display text-3xl">Nothing to check out</h1>
           <p className="mt-2 text-sm text-muted-foreground">Add a wig to your cart first.</p>
-          <Button asChild className="mt-6"><Link to="/shop" search={{}}>Shop wigs</Link></Button>
+          <Button asChild className="mt-6"><Link to="/shop" search={{ category: undefined }}>Shop wigs</Link></Button>
         </div>
       </StoreLayout>
     );

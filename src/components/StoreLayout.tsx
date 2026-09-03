@@ -107,7 +107,7 @@ export function StoreLayout({ children }: { children: ReactNode }) {
           <div>
             <p className="text-sm font-semibold">Shop</p>
             <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/shop" search={{}} className="hover:text-foreground">All wigs</Link></li>
+              <li><Link to="/shop" search={{ category: undefined }} className="hover:text-foreground">All wigs</Link></li>
               <li><Link to="/shop" search={{ category: "Best Sellers" }} className="hover:text-foreground">Best sellers</Link></li>
               <li><Link to="/shop" search={{ category: "New Arrivals" }} className="hover:text-foreground">New arrivals</Link></li>
             </ul>

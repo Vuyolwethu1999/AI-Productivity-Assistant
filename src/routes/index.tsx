@@ -55,7 +55,7 @@ function Home() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg">
-                <Link to="/shop" search={{}}>
+                <Link to="/shop" search={{ category: undefined }}>
                   Shop the collection <ArrowRight className="size-4" />
                 </Link>
               </Button>
@@ -92,7 +92,7 @@ function Home() {
             <p className="mt-1 text-sm text-muted-foreground">Our most requested human-blend units this month.</p>
           </div>
           <Button asChild variant="ghost">
-            <Link to="/shop" search={{}}>
+            <Link to="/shop" search={{ category: undefined }}>
               View all <ArrowRight className="size-4" />
             </Link>
           </Button>
