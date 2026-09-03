@@ -27,7 +27,9 @@ import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
 import { Route as OrderIdRouteImport } from './routes/order.$id'
 import { Route as ProductIdRouteImport } from './routes/product.$id'
 import { Route as AdminAiEmailRouteImport } from './routes/admin.ai.email'
+import { Route as AdminAiHistoryRouteImport } from './routes/admin.ai.history'
 import { Route as AdminAiMeetingsRouteImport } from './routes/admin.ai.meetings'
+import { Route as AdminAiTasksRouteImport } from './routes/admin.ai.tasks'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -119,9 +121,19 @@ const AdminAiEmailRoute = AdminAiEmailRouteImport.update({
   path: '/admin/ai/email',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminAiHistoryRoute = AdminAiHistoryRouteImport.update({
+  id: '/admin/ai/history',
+  path: '/admin/ai/history',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminAiMeetingsRoute = AdminAiMeetingsRouteImport.update({
   id: '/admin/ai/meetings',
   path: '/admin/ai/meetings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAiTasksRoute = AdminAiTasksRouteImport.update({
+  id: '/admin/ai/tasks',
+  path: '/admin/ai/tasks',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -144,7 +156,9 @@ export interface FileRoutesByFullPath {
   '/product/$id': typeof ProductIdRoute
   '/admin/': typeof AdminIndexRoute
   '/admin/ai/email': typeof AdminAiEmailRoute
+  '/admin/ai/history': typeof AdminAiHistoryRoute
   '/admin/ai/meetings': typeof AdminAiMeetingsRoute
+  '/admin/ai/tasks': typeof AdminAiTasksRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -165,7 +179,9 @@ export interface FileRoutesByTo {
   '/product/$id': typeof ProductIdRoute
   '/admin': typeof AdminIndexRoute
   '/admin/ai/email': typeof AdminAiEmailRoute
+  '/admin/ai/history': typeof AdminAiHistoryRoute
   '/admin/ai/meetings': typeof AdminAiMeetingsRoute
+  '/admin/ai/tasks': typeof AdminAiTasksRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -187,7 +203,9 @@ export interface FileRoutesById {
   '/product/$id': typeof ProductIdRoute
   '/admin/': typeof AdminIndexRoute
   '/admin/ai/email': typeof AdminAiEmailRoute
+  '/admin/ai/history': typeof AdminAiHistoryRoute
   '/admin/ai/meetings': typeof AdminAiMeetingsRoute
+  '/admin/ai/tasks': typeof AdminAiTasksRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -210,7 +228,9 @@ export interface FileRouteTypes {
     | '/product/$id'
     | '/admin/'
     | '/admin/ai/email'
+    | '/admin/ai/history'
     | '/admin/ai/meetings'
+    | '/admin/ai/tasks'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -231,7 +251,9 @@ export interface FileRouteTypes {
     | '/product/$id'
     | '/admin'
     | '/admin/ai/email'
+    | '/admin/ai/history'
     | '/admin/ai/meetings'
+    | '/admin/ai/tasks'
   id:
     | '__root__'
     | '/'
@@ -252,7 +274,9 @@ export interface FileRouteTypes {
     | '/product/$id'
     | '/admin/'
     | '/admin/ai/email'
+    | '/admin/ai/history'
     | '/admin/ai/meetings'
+    | '/admin/ai/tasks'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -274,7 +298,9 @@ export interface RootRouteChildren {
   ProductIdRoute: typeof ProductIdRoute
   AdminIndexRoute: typeof AdminIndexRoute
   AdminAiEmailRoute: typeof AdminAiEmailRoute
+  AdminAiHistoryRoute: typeof AdminAiHistoryRoute
   AdminAiMeetingsRoute: typeof AdminAiMeetingsRoute
+  AdminAiTasksRoute: typeof AdminAiTasksRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -405,11 +431,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminAiEmailRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/ai/history': {
+      id: '/admin/ai/history'
+      path: '/admin/ai/history'
+      fullPath: '/admin/ai/history'
+      preLoaderRoute: typeof AdminAiHistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/ai/meetings': {
       id: '/admin/ai/meetings'
       path: '/admin/ai/meetings'
       fullPath: '/admin/ai/meetings'
       preLoaderRoute: typeof AdminAiMeetingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/ai/tasks': {
+      id: '/admin/ai/tasks'
+      path: '/admin/ai/tasks'
+      fullPath: '/admin/ai/tasks'
+      preLoaderRoute: typeof AdminAiTasksRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -434,7 +474,9 @@ const rootRouteChildren: RootRouteChildren = {
   ProductIdRoute: ProductIdRoute,
   AdminIndexRoute: AdminIndexRoute,
   AdminAiEmailRoute: AdminAiEmailRoute,
+  AdminAiHistoryRoute: AdminAiHistoryRoute,
   AdminAiMeetingsRoute: AdminAiMeetingsRoute,
+  AdminAiTasksRoute: AdminAiTasksRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
