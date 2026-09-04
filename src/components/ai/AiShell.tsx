@@ -95,15 +95,17 @@ export function AiErrorState({ message, onRetry }: { message: string; onRetry: (
 
 export function PromptArchitecture({ items }: { items: { label: string; value: string }[] }) {
   return (
-    <details className="rounded-lg border border-border bg-card p-4 text-sm">
-      <summary className="cursor-pointer font-medium">How this prompt is constructed</summary>
-      <dl className="mt-3 space-y-3">
+    <details className="rounded-lg border border-border bg-card px-3 py-2 text-xs">
+      <summary className="cursor-pointer text-xs font-medium text-muted-foreground">
+        How this prompt is constructed
+      </summary>
+      <dl className="mt-2 space-y-2">
         {items.map((i) => (
           <div key={i.label}>
-            <dt className="text-[11px] font-semibold tracking-wider text-muted-foreground uppercase">
+            <dt className="text-[10px] font-semibold tracking-wider text-muted-foreground uppercase">
               {i.label}
             </dt>
-            <dd className="mt-1 whitespace-pre-line text-muted-foreground">{i.value}</dd>
+            <dd className="mt-0.5 line-clamp-2 whitespace-pre-line text-muted-foreground">{i.value}</dd>
           </div>
         ))}
       </dl>
